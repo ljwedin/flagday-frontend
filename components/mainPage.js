@@ -3,15 +3,23 @@ import { useState, useEffect } from 'react';
 import TextSmall from './textSmall';
 import DisplayFlag from './displayFlag';
 import TextLarge from './textLarge';
+import FlagDay from './flagDay';
 
 export default function MainPage(props) {
     [userData, setUserData] = useState({
         userId: '',
         country: '',
         flag: '',
-        flagDays: [],
+        privateFlagDays: [{}, { month: 0, day: 1, occasion: 'placeholder' }],
+        countryFlagDays: [],
         userName: '',
     });
+
+    const flagDayDev = {
+        month: new Date().getMonth(),
+        day: new Date().getDate(),
+        occasion: 'Dev Test Day',
+    };
 
     useEffect(() => {
         fetch('https://flagday-backend.herokuapp.com/userData/', {
@@ -27,14 +35,20 @@ export default function MainPage(props) {
 
     return (
         <View style={styles.container}>
-            <TextLarge text={userData.userName} />
-            <DisplayFlag flag={userData.flag} />
+            <FlagDay
+                flag={userData.flag}
+                occasion={flagDayDev.occasion}
+                nextFlagDay={userData.privateFlagDays[1]}
+            />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'column',
+        height: '100%',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });

@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
     buttonContainer: {
         backgroundColor: '#FAA815',
         padding: 10,
-        width: '70%',
+        width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
         borderColor: '#FAA815',
         borderWidth: 1,
     },
     buttonText: {
-        fontFamily: 'RobotoMono_Bold',
+        fontFamily: 'Roboto-Bold',
         fontSize: 16,
         color: '#272727',
         textTransform: 'uppercase',

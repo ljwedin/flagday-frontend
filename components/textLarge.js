@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 function TextLarge(props) {
     return <Text style={styles.text}>{props.text}</Text>;
